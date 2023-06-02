@@ -1,6 +1,6 @@
 const dictionary = ['elzie']; //different options
 const state = {
-    secret: dictionary,
+    secret: dictionary[0],
     grid: Array(6)
         .fill()
         .map(() => Array(5).fill('')),
@@ -42,7 +42,7 @@ function drawGrid(container) {
 
 function registerKeyboardEvents (){
 
-    document.body.onekeydoen = (e) => {
+    document.body.onkeydown = (e) => {
         const key = e.key;
         if(key === 'Enter') {
             if (state.currentCol === 5){
@@ -65,12 +65,12 @@ function registerKeyboardEvents (){
 
         }
 
-        updateGrid;
+        updateGrid();
     };
 }
 
 function getCurrentWord(){
-    return state.grid[state.currentRow].reduce((prev, curr) => prev + cur);
+    return state.grid[state.currentRow].reduce((prev, curr) => prev + curr);
 }
 
 function isWordValid(word) {
@@ -98,9 +98,9 @@ function revealWord(guess){
     const isGameOver = state.currentRow === 5;
 
     if (isWinner){
-        alert('correct!! (~‾⌣‾)~');
+        alert('correct!! (~ o V o)~');
     } else if (isGameOver){
-        alert (`bzzzt bzzzt wrongggg, the correct answer is obviously ${state.secret}! ( •_•) `)
+        alert (`bzzzt bzzzt wrongggg, the correct answer is obviously ${state.secret}! ( •_•) `);
     }
 }
 
@@ -123,6 +123,11 @@ function startup ()
 {
     const game = document.getElementById('game');
     drawGrid(game);
+
+    registerKeyboardEvents();
+
+    console.log(state.secret);
+
 }
 
 
