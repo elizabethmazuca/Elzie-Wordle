@@ -1,3 +1,7 @@
+/*import {testDictionary, realDictionary} from './dictionary.js';
+
+console.log('test dictionary:', testDictionary);*/
+
 const dictionary = ['elzie']; //different options
 const state = {
     secret: dictionary[0],
